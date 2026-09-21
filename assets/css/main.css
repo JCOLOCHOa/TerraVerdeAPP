@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Terra Verde · Jardín & Eventos
+   Tokens tomados de la Guía de Identidad Visual
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --verde-bosque: #315b2c;
+  --verde-oliva: #657a3a;
+  --dorado: #d99a32;
+  --dorado-oscuro: #b87920;
+  --marfil: #faf8f1;
+  --verde-claro: #e8eedb;
+  --carbon: #252525;
+  --beige: #e8d8b8;
+
+  /* Tipografía */
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Montserrat', system-ui, sans-serif;
+  --script: 'Great Vibes', cursive;
+
+  /* Ritmo vertical y medidas */
+  --ancho: 1180px;
+  --gutter: 24px;
+  --radio: 6px;
+  --sombra: 0 2px 16px rgba(37, 37, 37, 0.06);
+  --borde: 1px solid rgba(49, 91, 44, 0.14);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  background: var(--marfil);
+  color: var(--carbon);
+  font-family: var(--sans);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  color: var(--verde-bosque);
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0 0 1.2em;
+  max-width: 68ch;
+}
+
+a {
+  color: var(--verde-bosque);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+a:hover {
+  color: var(--dorado-oscuro);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--dorado-oscuro);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------- layout */
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.seccion {
+  padding-block: clamp(72px, 10vw, 130px);
+}
+
+.seccion--clara {
+  background: var(--verde-claro);
+}
+
+.seccion__titulo {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Filete dorado bajo los títulos, según la guía visual */
+.filete {
+  width: 64px;
+  height: 1px;
+  background: var(--dorado);
+  border: 0;
+  margin: 0 auto 40px;
+}
+
+.filete--izq {
+  margin-inline: 0;
+}
+
+.intro {
+  text-align: center;
+  margin-inline: auto;
+  color: #4a4a4a;
+}
+
+/* --------------------------------------------------------------- botones */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 15px 32px;
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease), transform 0.2s var(--ease);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn--principal {
+  background: var(--verde-bosque);
+  color: var(--marfil);
+}
+.btn--principal:hover:not(:disabled) {
+  background: var(--dorado-oscuro);
+  color: var(--marfil);
+}
+
+.btn--contorno {
+  background: transparent;
+  border-color: var(--dorado);
+  color: var(--marfil);
+}
+.btn--contorno:hover {
+  background: var(--dorado);
+  color: var(--carbon);
+}
+
+/* --------------------------------------------------------------- formulario */
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--verde-bosque);
+  letter-spacing: 0.02em;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  font-family: var(--sans);
+  font-size: 0.98rem;
+  color: var(--carbon);
+  background: var(--marfil);
+  border: 1px solid rgba(49, 91, 44, 0.22);
+  border-radius: var(--radio);
+  padding: 13px 15px;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--dorado);
+  box-shadow: 0 0 0 3px rgba(217, 154, 50, 0.15);
+}
+
+.campo--error input,
+.campo--error select,
+.campo--error textarea {
+  border-color: #a83232;
+}
+
+.campo__error {
+  font-size: 0.8rem;
+  color: #a83232;
+}
+
+/* --------------------------------------------------------------- animación */
+
+/* Revelado al hacer scroll, gobernado por el composable useRevelar */
+.revelar {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.revelar.es-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Transición entre páginas */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .revelar {
+    opacity: 1;
+    transform: none;
+  }
+}
