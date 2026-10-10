@@ -1,6 +1,5 @@
 <script setup lang="ts">
-const mapa =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.8049830924183!2d-90.8009254!3d14.6101825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85891300778c5711%3A0xef8a1571afc5da8a!2sJard%C3%ADn%20Terra%20Verde!5e0!3m2!1ses!2sgt!4v1788296472763!5m2!1ses!2sgt'
+const mapa = 'https://maps.google.com/maps?q=14.6101825,-90.8009254&z=16&output=embed'
 </script>
 
 <template>
