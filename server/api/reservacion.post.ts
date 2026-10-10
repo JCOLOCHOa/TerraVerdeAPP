@@ -140,8 +140,8 @@ Correo: ${datos.email}
 Teléfono: ${datos.telefono}
 Comentarios: ${datos.comentarios}`
 
-    transporte
-      .sendMail({
+try {
+      await transporte.sendMail({
         from: `"Sitio web Terra Verde" <${config.smtpUser}>`,
         to: config.mailTo || 'terra.verde@outlook.es',
         bcc: config.smtpUser,
@@ -150,15 +150,14 @@ Comentarios: ${datos.comentarios}`
         text: texto,
         html
       })
-      .then(async (info) => {
-        console.log('[reservacion] correo enviado:', info.messageId)
-        await db.from('reservaciones').update({ correo_enviado: true }).eq('id', guardada.id)
-        transporte.close()
-      })
-      .catch((error) => {
-        console.error('[reservacion] fallo al enviar correo:', error)
-        transporte.close()
-      })
+      console.log('[reservacion] correo enviado')
+      await db.from('reservaciones').update({ correo_enviado: true }).eq('id', guardada.id)
+    } catch (error) {
+      // La reservación ya está guardada; el panel la marca como "correo pendiente"
+      console.error('[reservacion] fallo al enviar correo:', error)
+    } finally {
+      transporte.close()
+    }
   }
 
   return {

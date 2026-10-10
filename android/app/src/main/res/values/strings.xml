@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Terra Verde</string>
+    <string name="title_activity_main">Terra Verde</string>
+    <string name="package_name">com.terraverde.eventos</string>
+    <string name="custom_url_scheme">com.terraverde.eventos</string>
+</resources>

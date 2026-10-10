@@ -1,0 +1,9 @@
+{
+  "appId": "com.terraverde.eventos",
+  "appName": "Terra Verde",
+  "webDir": "www",
+  "server": {
+    "url": "https://terra-verde-app.vercel.app",
+    "cleartext": false
+  }
+}
